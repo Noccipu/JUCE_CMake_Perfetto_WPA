@@ -1,0 +1,6 @@
+/build/
+/builds/
+/JUCE/
+/modules/
+*.etl
+/*.etl.NGENPDB/

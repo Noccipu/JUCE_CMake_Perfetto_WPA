@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WindowsPerformanceRecorder Version="1.0">
+  <Profiles>
+    <Profile Id="AudioPluginProfile" Name="AudioPluginProfile" Description="Profile for audio plugin performance analysis" LoggingMode="File" DetailLevel="Verbose">
+      <Collectors>
+        <SystemCollectorId Value="NTKernelLogger" />
+      </Collectors>
+      <SystemProviders>
+        <SystemProvider Id="CpuSampleProvider" Name="SampledProfile">
+          <Keywords>
+            <Keyword Value="SampledProfile" />
+          </Keywords>
+          <Stacks>
+            <Stack Value="CSwitch" />
+          </Stacks>
+        </SystemProvider>
+        <SystemProvider Id="ContextSwitchProvider" Name="Thread">
+          <Keywords>
+            <Keyword Value="CSwitch" />
+          </Keywords>
+          <Stacks>
+            <Stack Value="CSwitch" />
+          </Stacks>
+        </SystemProvider>
+        <SystemProvider Id="DpcIsrProvider" Name="Interrupt">
+          <Keywords>
+            <Keyword Value="DPC" />
+            <Keyword Value="Interrupt" />
+          </Keywords>
+          <Stacks>
+            <Stack Value="DpcExecute" />
+            <Stack Value="InterProcessorInterrupt" />
+          </Stacks>
+        </SystemProvider>
+        <SystemProvider Id="DiskIoProvider" Name="DiskIo">
+          <Keywords>
+            <Keyword Value="DiskIO" />
+          </Keywords>
+        </SystemProvider>
+        <SystemProvider Id="AudioProvider" Name="Microsoft-Windows-Audio">
+          <Keywords>
+            <CustomKeyword Value="0xFFFFFFFFFFFFFFFF" />
+          </Keywords>
+        </SystemProvider>
+      </SystemProviders>
+    </Profile>
+  </Profiles>
+</WindowsPerformanceRecorder>

@@ -1,0 +1,18 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+
+      {
+        "name": "[Windows] Debug and launch WPA",
+        "type": "cppdbg",
+        "request": "launch",
+        "program": "${workspaceFolder}/build/AudioPluginExample_artefacts/Debug/Standalone/AudioPluginExample.exe",
+        "args": [],
+        "preLaunchTask": "Start WPA Recording",
+        "postDebugTask": "Stop WPA and Analyze",
+        "cwd": "${workspaceFolder}",
+        "stopAtEntry": false
+      }
+    ]
+  }
+  
