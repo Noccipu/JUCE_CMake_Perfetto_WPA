@@ -2,10 +2,6 @@
 
 This JUCE project template merges the [JUCE/examples/CMake/AudioPlugin](https://github.com/juce-framework/JUCE/tree/master/examples/CMake/AudioPlugin), the [Melatonin Perfetto](https://github.com/sudara/melatonin_perfetto) module and the [Windows Performance Analyzer (WPA)](https://learn.microsoft.com/fr-fr/windows-hardware/test/wpt/windows-performance-analyzer) to provide a comprehensive profiling solution tailored for advanced audio application development.
 
-## Table of content
-
-**TODO**
-
 
 ## Setup
 
