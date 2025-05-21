@@ -3,7 +3,6 @@
     "tasks": [
       {
         "label": "Start WPA Recording",
-        "dependsOn": ["Build Debug"],
         "dependsOrder": "sequence",
         "type": "shell",
         "command": "powershell",
@@ -24,7 +23,7 @@
         "problemMatcher": []
       },
       {
-        "label": "Build Debug",
+        "label": "Debug Build",
         "type": "shell",
         "command": "cmake",
         "args": [
@@ -32,7 +31,34 @@
           "--config", "Debug"
         ],
         "group": "build"
+      },
+      {
+        "label": "Release Build",
+        "type": "shell",
+        "command": "cmake",
+        "args": [
+          "--build", "build",
+          "--config", "Release"
+        ],
+        "group": "build"
+      },
+      {
+        "label": "Debug - Build and Start WPA",
+        "dependsOn": ["Debug Build", "Start WPA Recording"],
+        "dependsOrder": "sequence",
+        "type": "shell",
+        "command": "echo", // Ne fait rien, juste pour contenter le système
+        "args": ["Starting Debug WPA..."]
+      },
+      {
+        "label": "Release - Build and Start WPA",
+        "dependsOn": ["Release  Build", "Start WPA Recording"],
+        "dependsOrder": "sequence",
+        "type": "shell",
+        "command": "echo",
+        "args": ["Starting Release WPA..."]
       }
+      
     ]
   }
   

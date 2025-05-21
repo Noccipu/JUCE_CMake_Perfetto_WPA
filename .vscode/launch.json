@@ -3,12 +3,24 @@
     "configurations": [
 
       {
-        "name": "[Windows] Debug and launch WPA",
+        "name": "[Windows] Debug - Profile and launch WPA",
         "type": "cppdbg",
         "request": "launch",
         "program": "${workspaceFolder}/build/AudioPluginExample_artefacts/Debug/Standalone/AudioPluginExample.exe",
         "args": [],
-        "preLaunchTask": "Start WPA Recording",
+        "preLaunchTask": "Debug - Build and Start WPA",
+        "postDebugTask": "Stop WPA and Analyze",
+        "cwd": "${workspaceFolder}",
+        "stopAtEntry": false
+      },
+
+      {
+        "name": "[Windows] Release - Profile and launch WPA",
+        "type": "cppdbg",
+        "request": "launch",
+        "program": "${workspaceFolder}/build/AudioPluginExample_artefacts/Debug/Standalone/AudioPluginExample.exe",
+        "args": [],
+        "preLaunchTask": "Release - Build and Start WPA",
         "postDebugTask": "Stop WPA and Analyze",
         "cwd": "${workspaceFolder}",
         "stopAtEntry": false

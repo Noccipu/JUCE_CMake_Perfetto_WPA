@@ -29,9 +29,13 @@ message(STATUS "Adding JUCE submodule")
 add_subdirectory(JUCE)                    # If you've put JUCE in a subdirectory called JUCE
 message(STATUS "Adding JUCE submodule - done")
 
+# Add the PERFETTO option that can be activated for Debug and Release builds
+# Activates with ON and deactivates with OFF
+option(PERFETTO "Enable Perfetto tracing using the melatonin_perfetto module" OFF)
+
 # Depending on the CMAKE_BUILD_TYPE value, we add the Debug subdirectories
-if (CMAKE_BUILD_TYPE STREQUAL "Debug")
-    message(STATUS "Debug Build Type, all Debug subdirectories will be added")
+if (PERFETTO STREQUAL ON)
+    message(STATUS "Perfetto tracing activated")
     message(STATUS "Adding Melatonin Perfetto module")
     add_subdirectory (modules/melatonin_perfetto)
     message(STATUS "Adding Melatonin Perfetto module - done")
@@ -113,7 +117,6 @@ target_link_libraries(AudioPluginExample
         juce::juce_recommended_warning_flags)
 
 if (PERFETTO STREQUAL ON)
-    message(STATUS "Perfetto is set to 1")
     target_link_libraries(AudioPluginExample PRIVATE Melatonin::Perfetto)
 endif()
         
