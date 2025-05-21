@@ -32,7 +32,7 @@ git submodule --init --recursive
 ### Usage Overview
 The template does several things, all of which can be customized: 
 
-1. For a **Debug** build, you can toggle Melatonin Perfetto tracing via the `PERFETTO` CMake option:
+1. For **Debug** and **Release** builds, you can toggle Melatonin Perfetto tracing via the `PERFETTO` CMake option:
 
 ```bash
 cmake -B build -DCMAKE_BUILD_TYPE=Debug -DPERFETTO=ON
@@ -40,7 +40,7 @@ cmake -B build -DCMAKE_BUILD_TYPE=Debug -DPERFETTO=ON
 
 Once you set `PERFETTO=ON` (or `OFF`), that setting persists for subsequent CMake reconfigurations until you override it again.
 
-2. For a **Debug** build, you can use a `launch.json` (*Debug and launch WPA*) configuration that runs Windows Performance Recorder (WPR) to capture CPU, GPU, memory, and other system events during the Standalone execution, then automatically opens the generated trace in Windows Performance Analyzer (WPA).
+2. For a **Debug** build, you can use a `launch.json` (*Debug - Profile and launch WPA*) configuration that runs Windows Performance Recorder (WPR) to capture CPU, GPU, memory, and other system events during the Standalone execution, then automatically opens the generated trace in Windows Performance Analyzer (WPA). It's the same idea for **Release** builds, except that the launch configuration is *Release - Profile and launch WPA*.
 
 ### Custom Usage
 1. **`PERFETTO` MACRO**
@@ -58,7 +58,7 @@ The **tracing functions** in the template are the most basic versions of those a
 
 3. **Custom WPR profiles** *(more info on the [Windows Hardware Developer documentation](https://learn.microsoft.com/en-us/windows-hardware/test/wpt/recording-with-custom-profiles))*
 
-The default WPR profile is the **CPU profile**. However, it is possible to use other built-in profiles specified on the dedicated [WPR documentation](https://learn.microsoft.com/en-us/windows-hardware/test/wpt/built-in-recording-profiles) page. Modifications are made in the `/.vscode/tasks.json` file, in the *"Start WPA Recording"* task
+The default WPR profile is the **CPU profile**. However, it is possible to use other built-in profiles specified on the dedicated [WPR documentation](https://learn.microsoft.com/en-us/windows-hardware/test/wpt/built-in-recording-profiles) page. Modifications are made in the `/.vscode/tasks.json` file, in the *"Start WPA Recording"* task, simply replace `CPU` with the built-in profile needed.
 ```json
 "args": [
     "-Command",
